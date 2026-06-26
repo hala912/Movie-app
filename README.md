@@ -1,32 +1,43 @@
-# React + TypeScript + Vite
+# 🎬 Movie Discovery App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A responsive movie discovery app built with React, TypeScript, and the TMDB API. Browse popular movies, search by title, and save your favorites.
 
-Currently, two official plugins are available:
+## 🚀 Live Demo
+[Coming soon]
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
+- Browse popular movies
+- Search movies by title
+- View movie details (rating, overview, release date)
+- Add movies to your favorites list
+- Responsive design
 
-## React Compiler
+## 🛠️ Tech Stack
+- React 18
+- TypeScript
+- Redux Toolkit
+- React Router DOM
+- Axios
+- TMDB API
+- Vite
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## ⚙️ Getting Started
 
-## Expanding the Oxlint configuration
+1. Clone the repo
+   git clone https://github.com/hala912/Movie-app.git
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+2. Install dependencies
+   npm install
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+3. Create a .env file in the root and add your TMDB token
+   VITE_TMDB_TOKEN=your_token_here
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+4. Run the app
+   npm run dev
+
+## 🔑 API
+This app uses the [TMDB API](https://www.themoviedb.org/documentation/api).
+Get your free API key at [themoviedb.org](https://www.themoviedb.org/).
+
+## 👩‍💻 Author
+Hala - [GitHub](https://github.com/hala912)
