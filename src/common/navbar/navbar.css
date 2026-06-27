@@ -1,0 +1,56 @@
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  color: #aaa;
+}
+.nav-links a { 
+  text-decoration: none;
+  color: #aaa;  /* 👈 this overrides the browser blue */
+}
+.navbar-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 40px;
+  background-color: #131313;
+  color: white;
+}
+
+.nav-links { 
+  display: flex; 
+  gap: 28px; 
+}
+
+.search-box {
+  background: #1a1a1a;
+  padding: 8px 14px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box input { 
+  background: transparent; 
+  border: none; 
+  color: white; 
+  outline: none;
+  width: 160px;
+  font-size: 14px;
+}
+
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 2px solid #e50914;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.nav-links a.active { 
+  color: #FFB4AA;
+  border-bottom: 2px solid #FFB4AA; 
+}

@@ -1,0 +1,57 @@
+import { Search, Bell } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import './navbar.css';
+import { useAppDispatch } from '../../store/hooks';
+import fetchSearchMovies from '../../store/movieslice/actions/searchformovie';
+
+const navItems = [
+  { id: 'movies', label: 'Movies' },
+  { id: 'series', label: 'Series' },
+  { id: 'genres', label: 'Genres' },
+  { id: 'mylist', label: 'My List' },
+];
+
+const Navbar = () => {
+  const [activeTab, setActiveTab] = useState('movies');
+  const dispatch = useAppDispatch()
+
+  const [searchquery,setsearchquery] = useState('')
+
+  useEffect(()=>{
+  const timer = setTimeout(()=>{
+    if(searchquery.trim()){
+      dispatch(fetchSearchMovies(searchquery))
+    }
+  }, 500)
+
+  return () => clearTimeout(timer)
+  },[searchquery])
+
+  return (
+    <header className="navbar-top">
+      <div className="logo">CINEPLEX</div>
+      <nav className="nav-links">
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href="#"
+            className={activeTab === item.id ? 'active' : ''}
+            onClick={() => setActiveTab(item.id)}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+      <div className="nav-actions">
+        <div className="search-box">
+          <Search size={18} />
+          <input type="text" placeholder="Search movies..." value={searchquery} onChange={(e)=>setsearchquery(e.target.value)} />
+        </div>
+        <Bell size={20} />
+        <img src="" alt="User" className="avatar" />
+      </div>
+    </header>
+  );
+};
+
+export default Navbar;
