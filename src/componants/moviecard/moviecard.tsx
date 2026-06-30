@@ -1,21 +1,14 @@
 import './moviecard.css';
 import { useQuery } from '@tanstack/react-query';
 import { getMovieDetails } from '../../api/tmbd';
+import type {Movie} from '../../types/movie'
 
-interface MovieDetails {
-  id: number;
-  title: string;
-  poster_path: string;
-  vote_average: number;
-  release_date: string;
-  overview: string;
+
+interface MovieCardProps  {
+  movie: Movie;
 }
 
-interface Movie {
-  movie: MovieDetails;
-}
-
-const MovieCard = ({ movie }: Movie) => {
+const MovieCard = ({ movie }: MovieCardProps) => {
 /*
   const {data, isLoading} = useQuery({
     queryKey: ['movie', movie.id],
