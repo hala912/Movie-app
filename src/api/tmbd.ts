@@ -15,5 +15,9 @@ export const searchMovies = (query: string) =>
 
 export const getMovieDetails = (id: number) =>
   tmdb.get(`/movie/${id}`);
+export const getTrendingMovies = () =>
+  tmdb.get("/trending/movie/week");
+export const getTopRatedMovies = () =>
+  tmdb.get("/movie/top_rated");
 
 export default tmdb;

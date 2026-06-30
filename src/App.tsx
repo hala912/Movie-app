@@ -6,17 +6,9 @@ import "./App.css"
 import Navbar from "./common/navbar/navbar";
 import { useAppDispatch, useAppSelector } from "./store/hooks";
 import { fetchPopularMovies } from "./store/movieslice/movieslice";
+import Home from "./pages/Home/Home";
 function App() {
  
-  const dispatch= useAppDispatch()
-  const movies = useAppSelector((state) => state.movies.movies)
-
-  useEffect(
-    ()=>{
-      dispatch(fetchPopularMovies())
-    },
-    []
-  );
 
   return (
    <div className="app-layout">
@@ -24,11 +16,7 @@ function App() {
       <div className="body-layout">
         <Sidebar />
         <main className="content">
-        <div>
-          {movies.map((movie: any) => (
-            <MovieCard key={movie.id} movie={movie} />
-          ))}
-        </div>
+       <Home/>
       </main>
       </div>
     </div>
@@ -42,5 +30,21 @@ function App() {
       setMovies(res.data.results);
     });
   }, []);
+    const dispatch= useAppDispatch()
+  const movies = useAppSelector((state) => state.movies.movies)
+
+  useEffect(
+    ()=>{
+      dispatch(fetchPopularMovies())
+    },
+    []
+  );
+
+   <div>
+          {movies.map((movie: any) => (
+            <MovieCard key={movie.id} movie={movie} />
+          ))}
+        </div>
+
 */
 export default App;
