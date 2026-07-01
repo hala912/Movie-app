@@ -13,7 +13,7 @@ function App() {
    <div className="app-layout">
       <Navbar />
       <div className="body-layout">
-        <Sidebar />
+      
         <main className="content">
         <AppRoutes />
       </main>

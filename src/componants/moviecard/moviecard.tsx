@@ -1,10 +1,9 @@
-import './moviecard.css';
-import { useQuery } from '@tanstack/react-query';
-import { getMovieDetails } from '../../api/tmbd';
-import type {Movie, MovieDetails} from '../../types/movie'
+import "./moviecard.css";
+import { useQuery } from "@tanstack/react-query";
+import { getMovieDetails } from "../../api/tmbd";
+import type { Movie, MovieDetails } from "../../types/movie";
 
-
-interface MovieCardProps  {
+interface MovieCardProps {
   movie: MovieDetails;
 }
 
@@ -16,20 +15,24 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
           alt={movie.title}
         />
-      
       </div>
 
       <div className="right-side">
+        <h1 className="movie-title">{movie.title}</h1>
         <div className="meta">
           <span className="rating">{movie.vote_average} Rating</span>
           <span className="dot">•</span>
-          <span>{movie.release_date?.slice(0, 4) || '2024'}</span>
+          <span>{movie.release_date?.slice(0, 4) || "2024"}</span>
+          <span className="dot">•</span>
+          <span>{movie.runtime} min</span>
         </div>
 
         <div className="categories">
-          <span className="category-tag">Animation</span>
-          <span className="category-tag">Adventure</span>
-          <span className="category-tag">Sci-Fi</span>
+          {movie.genres?.map((genre) => (
+            <span key={genre.id} className="category-tag">
+              {genre.name}
+            </span>
+          ))}
         </div>
 
         <p className="overview">{movie.overview}</p>
@@ -47,11 +50,18 @@ const MovieCard = ({ movie }: MovieCardProps) => {
         <div className="info-grid">
           <div className="info-box">
             <span className="info-label">DIRECTOR</span>
-            <span className="info-value">{movie.credits.crew.find((member) => member.job === "Director")?.name || "Unknown"}</span>
+            <span className="info-value">
+              {movie.credits.crew.find((member) => member.job === "Director")
+                ?.name || "Unknown"}
+            </span>
           </div>
           <div className="info-box">
             <span className="info-label">STUDIO</span>
-            <span className="info-value">{movie.credits.crew.find((member)=>member.department==="Production")?.name || "Unknown"}</span>
+            <span className="info-value">
+              {movie.credits.crew.find(
+                (member) => member.department === "Production",
+              )?.name || "Unknown"}
+            </span>
           </div>
         </div>
 
@@ -60,7 +70,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           <div className="trailer-info">
             <div className="trailer-header">
               <span className="trailer-title">Trailer Preview</span>
-              <span className="trailer-time">{movie.videos.results[0]?.name || "Unknown"}</span>
+              <span className="trailer-time">2:30</span>
             </div>
             <div className="progress-container">
               <div className="progress-bar"></div>
