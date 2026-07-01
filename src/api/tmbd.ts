@@ -7,17 +7,17 @@ const tmdb = axios.create({
   },
 });
 
-export const getPopularMovies = () =>
-  tmdb.get("/movie/popular");
+export const getPopularMovies = () => tmdb.get("/movie/popular");
 
 export const searchMovies = (query: string) =>
   tmdb.get("/search/movie", { params: { query } });
 
 export const getMovieDetails = (id: number) =>
-  tmdb.get(`/movie/${id}`);
-export const getTrendingMovies = () =>
-  tmdb.get("/trending/movie/week");
-export const getTopRatedMovies = () =>
-  tmdb.get("/movie/top_rated");
+  tmdb.get(`/movie/${id}`, {
+    params: { append_to_response: "credits,videos,recommendations" },
+  });
+
+export const getTrendingMovies = () => tmdb.get("/trending/movie/week");
+export const getTopRatedMovies = () => tmdb.get("/movie/top_rated");
 
 export default tmdb;

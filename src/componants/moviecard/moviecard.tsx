@@ -1,21 +1,14 @@
 import './moviecard.css';
 import { useQuery } from '@tanstack/react-query';
 import { getMovieDetails } from '../../api/tmbd';
-import type {Movie} from '../../types/movie'
+import type {Movie, MovieDetails} from '../../types/movie'
 
 
 interface MovieCardProps  {
-  movie: Movie;
+  movie: MovieDetails;
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
-/*
-  const {data, isLoading} = useQuery({
-    queryKey: ['movie', movie.id],
-    queryFn: () => getMovieDetails(movie.id).then(res => res.data),
-    staleTime: 1000 * 60 * 5, // Cache for 5 minutes
-  });
-*/
   return (
     <div className="card-bg">
       <div className="left-side">
@@ -54,11 +47,11 @@ const MovieCard = ({ movie }: MovieCardProps) => {
         <div className="info-grid">
           <div className="info-box">
             <span className="info-label">DIRECTOR</span>
-            <span className="info-value">Marcus Thorne</span>
+            <span className="info-value">{movie.credits.crew.find((member) => member.job === "Director")?.name || "Unknown"}</span>
           </div>
           <div className="info-box">
             <span className="info-label">STUDIO</span>
-            <span className="info-value">Neon Pixel Labs</span>
+            <span className="info-value">{movie.credits.crew.find((member)=>member.department==="Production")?.name || "Unknown"}</span>
           </div>
         </div>
 
@@ -67,7 +60,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           <div className="trailer-info">
             <div className="trailer-header">
               <span className="trailer-title">Trailer Preview</span>
-              <span className="trailer-time">0:45 / 2:30</span>
+              <span className="trailer-time">{movie.videos.results[0]?.name || "Unknown"}</span>
             </div>
             <div className="progress-container">
               <div className="progress-bar"></div>

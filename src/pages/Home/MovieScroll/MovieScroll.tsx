@@ -8,16 +8,17 @@ import fetchTopRatedmovies from "../../../store/movieslice/actions/getTopRatedmo
 interface Props {
   header: string;
   movies :Movie[];
+  onClick: (movie: Movie) => void;
 }
 
-const MovieScroll = ({header,movies}: Props, ) => {
+const MovieScroll = ({header,movies, onClick}: Props, ) => {
   
   return (
     <div className="container">
       <h3 className="Header">{header}</h3>
       <div className="Movielist">
         {movies.map((movie: Movie) => (
-          <div key={movie.id} className="movie-mini">
+          <div key={movie.id} className="movie-mini" onClick={() => onClick(movie)}>
             <img
               src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
               alt={movie.title}
