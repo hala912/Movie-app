@@ -6,6 +6,7 @@ import { getPopularMovies } from "../../api/tmbd";
 import fetchTrendingWeek from "./actions/getTrendingthisweek";
 import type { Movie } from "../../types/movie";
 import fetchTopRatedmovies from "./actions/getTopRatedmovies";
+import fetchMovieDetails from "./actions/getmoviedetails";
 
 export const fetchPopularMovies = createAsyncThunk(
   "movies/fetchPopular",
@@ -14,10 +15,12 @@ export const fetchPopularMovies = createAsyncThunk(
     return res.data.results;
   },
 );
+
 const InitialState = {
   movies: [] as any[],
   trendingMovies: [] as Movie[],
   topratedMovies :[] as Movie[],
+  movieDetails: null as Movie | null,
   loading: false,
   searchQuery: "",
 };
@@ -58,6 +61,13 @@ const movieSlice = createSlice({
         state.topratedMovies = action.payload;
       })
       .addCase(fetchTopRatedmovies.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchMovieDetails.fulfilled, (state, action) => {
+        state.loading = false;
+        state.movieDetails = action.payload;
+      })
+      .addCase(fetchMovieDetails.pending, (state) => {
         state.loading = true;
       });
   },

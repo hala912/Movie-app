@@ -4,9 +4,8 @@ import MovieCard from "./componants/moviecard/moviecard";
 import Sidebar  from "./common/sidebar/sidebar";
 import "./App.css"
 import Navbar from "./common/navbar/navbar";
-import { useAppDispatch, useAppSelector } from "./store/hooks";
-import { fetchPopularMovies } from "./store/movieslice/movieslice";
-import Home from "./pages/Home/Home";
+import AppRoutes from "./router/router";
+
 function App() {
  
 
@@ -16,7 +15,7 @@ function App() {
       <div className="body-layout">
         <Sidebar />
         <main className="content">
-       <Home/>
+        <AppRoutes />
       </main>
       </div>
     </div>
