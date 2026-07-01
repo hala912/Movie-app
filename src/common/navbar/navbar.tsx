@@ -5,11 +5,11 @@ import { useAppDispatch } from '../../store/hooks';
 import fetchSearchMovies from '../../store/movieslice/actions/searchformovie';
 
 const navItems = [
-  { id: 'movies', label: 'Movies' },
-  { id: 'series', label: 'Series' },
-  { id: 'genres', label: 'Genres' },
-  { id: 'mylist', label: 'My List' },
-];
+  { id: 'movies', label: 'Movies',path:'/' },
+  { id: 'trending', label: 'Trending', path:'/trending' },
+  { id: 'drama', label: 'Drama', path:'/genres' },
+  { id: 'mylist', label: 'My List', path:'/mylist' },
+]; 
 
 const Navbar = () => {
   const [activeTab, setActiveTab] = useState('movies');
@@ -34,9 +34,9 @@ const Navbar = () => {
         {navItems.map((item) => (
           <a
             key={item.id}
-            href="#"
+            href={item.path}
             className={activeTab === item.id ? 'active' : ''}
-            onClick={() => setActiveTab(item.id)}
+            onClick={() =>{ setActiveTab(item.id)}}
           >
             {item.label}
           </a>

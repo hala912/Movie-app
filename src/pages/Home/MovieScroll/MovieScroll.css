@@ -4,8 +4,8 @@
 
 .Header {
   color: white;
-  font-size: 20px;
-  margin-bottom: 16px;
+  font-size: 36px;
+  margin-bottom: 24px;
 }
 
 .Movielist {
@@ -21,7 +21,7 @@
 
 .movie-mini {
   flex-shrink: 0;
-  width: 150px;
+  width: 250px;
   cursor: pointer;
 }
 
@@ -37,9 +37,9 @@
 
 .movie-mini p {
   color: white;
-  font-size: 13px;
+  font-size: 20 px;
   margin-top: 8px;
   white-space: nowrap;
   overflow: hidden;
-  text-doverflow: ellipsis;
+  text-overflow: ellipsis;
 }
