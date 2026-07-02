@@ -8,7 +8,7 @@ const HeroBanner = ({ movie }: MovieCardProps) => {
     <div 
       className="Banner_ing"
       style={{
-        backgroundImage: `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`,
+        backgroundImage: `url(https://image.tmdb.org/t/p/w1280${movie.backdrop_path})`,
       }}
     >
       <div className="meta">
