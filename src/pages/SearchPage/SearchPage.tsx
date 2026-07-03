@@ -5,13 +5,9 @@ import MovieScroll from "../Home/MovieScroll/MovieScroll";
 import { useNavigate } from "react-router-dom";
 
 const SearchPage = () => {
-  const movies = useAppSelector((state) => state.movies.movies);
-  const dispatch = useAppDispatch();
+  const movies = useAppSelector((state) => state.movies.SearchMovies);
   const navigate = useNavigate();
 
-  useEffect(() => {
-    dispatch(fetchPopularMovies());
-  }, []);
 
   return (
     <div>

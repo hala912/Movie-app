@@ -7,6 +7,8 @@ import fetchTrendingWeek from "./actions/getTrendingthisweek";
 import type { Movie } from "../../types/movie";
 import fetchTopRatedmovies from "./actions/getTopRatedmovies";
 import fetchMovieDetails from "./actions/getmoviedetails";
+import fetchMovieGenre from "./actions/getMovieGenre";
+import fetchMovieByGenre from "./actions/getMovieByGenre";
 
 export const fetchPopularMovies = createAsyncThunk(
   "movies/fetchPopular",
@@ -18,8 +20,11 @@ export const fetchPopularMovies = createAsyncThunk(
 
 const InitialState = {
   movies: [] as any[],
+  SearchMovies: [] as Movie[],
   trendingMovies: [] as Movie[],
   topratedMovies :[] as Movie[],
+  MoviesByGenre : [] as Movie[],
+  MovieGenre: [] as { id: number; name: string }[],  
   movieDetails: null as Movie | null,
   loading: false,
   searchQuery: "",
@@ -32,6 +37,9 @@ const movieSlice = createSlice({
     setSearchQuery: (state, action) => {
       state.searchQuery = action.payload;
     },
+    emptySearchResults: (state) => {
+      state.SearchMovies = [];
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -40,7 +48,7 @@ const movieSlice = createSlice({
       })
       .addCase(fetchSearchMovies.fulfilled, (state, action) => {
         state.loading = false;
-        state.movies = action.payload;
+        state.SearchMovies = action.payload;
       })
       .addCase(fetchPopularMovies.pending, (state) => {
         state.loading = true;
@@ -69,8 +77,23 @@ const movieSlice = createSlice({
       })
       .addCase(fetchMovieDetails.pending, (state) => {
         state.loading = true;
+      })
+      .addCase(fetchMovieGenre.fulfilled, (state, action) => {
+        state.loading = false;
+        state.MovieGenre = action.payload;
+      })
+      .addCase(fetchMovieGenre.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(fetchMovieByGenre.fulfilled, (state, action) => {
+        state.loading = false;
+        state.MoviesByGenre = action.payload;
+      })
+      .addCase(fetchMovieByGenre.pending, (state) => {
+        state.loading = true;
       });
   },
 });
 
 export default movieSlice.reducer;
+export const { setSearchQuery, emptySearchResults } = movieSlice.actions;
