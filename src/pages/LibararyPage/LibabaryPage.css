@@ -1,0 +1,10 @@
+.library-page {
+  padding: 24px;
+}
+
+.page-title {
+    display: flex;
+  color: white;
+  font-size: 36px;
+  margin-bottom: 24px;
+}

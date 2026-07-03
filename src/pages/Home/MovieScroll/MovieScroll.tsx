@@ -10,14 +10,15 @@ interface Props {
   movies :Movie[];
   onClick: (movie: Movie) => void;
   postion? : "Horizontal" | "Vertical";
+  className?: string;
 }
 
-const MovieScroll = ({header,movies, onClick, postion}: Props, ) => {
+const MovieScroll = ({header,movies, onClick, postion, className}: Props, ) => {
   
   return (
     <div className="container">
       <h3 className="Header">{header}</h3>
-      <div className={`Movielist ${postion === "Vertical" ? 'Movielist--vertical' : ''}`}>
+      <div className={`Movielist ${postion === "Vertical" ? 'Movielist--vertical' : ''} ${className || ''}`}>
         {movies.map((movie: Movie) => (
           <div key={movie.id} className="movie-mini" onClick={() => onClick(movie)}>
             <img

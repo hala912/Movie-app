@@ -51,3 +51,20 @@
   gap: 16px;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
 }
+
+
+.Movielist.library-override {
+    padding: 10px; /* Adjust spacing for the library page *//* Optional: add a subtle background */
+    border-radius: 12px;
+}
+
+.Movielist.library-override .movie-mini {
+    width: 200px; /* Make cards slightly smaller for a "Library" grid view */
+}
+
+.Movielist.library-override .movie-mini img {
+    border-radius: 12px; /* Rounder corners for a cleaner look */
+}
+.Movielist.library-override .Header {
+   color: white; /* Rounder corners for a cleaner look */
+}

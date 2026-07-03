@@ -1,0 +1,30 @@
+.category-options {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  overflow-x: auto;
+}
+
+.category-options button {
+  flex-shrink: 0;
+  padding: 10px 24px;
+  border-radius: 999px;
+  border: none;
+  background-color: #2a2a2a;
+  color: #b0b0b0;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.category-options button:hover {
+  background-color: #3a3a3a;
+  color: #ffffff;
+}
+
+.category-options button.active {
+  background-color: #e50914;
+  color: #ffffff;
+  font-weight: 600;
+}
