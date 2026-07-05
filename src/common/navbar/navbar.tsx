@@ -1,10 +1,13 @@
 import { Search, Bell } from "lucide-react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
 import { useAppDispatch } from "../../store/hooks";
 import fetchSearchMovies from "../../store/movieslice/actions/searchformovie";
 import { emptySearchResults } from "../../store/movieslice/movieslice";
+
+
+
 
 const navItems = [
   { id: "movies", label: "Movies", path: "/" },
@@ -14,6 +17,10 @@ const navItems = [
 ];
 
 const Navbar = () => {
+
+
+
+
   const [activeTab, setActiveTab] = useState("movies");
   const dispatch = useAppDispatch();
 
@@ -32,6 +39,13 @@ const Navbar = () => {
     return () => clearTimeout(timer);
   }, [searchquery]);
 
+   const location = useLocation();
+
+  const hideOnRoutes = ["/Login", "/signup"]; // add any auth pages here
+  if (hideOnRoutes.includes(location.pathname)) {
+    return null; // don't render the navbar
+  }
+  
   return (
     <header className="navbar-top">
       <div className="logo">CINEPLEX</div>

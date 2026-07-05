@@ -16,7 +16,7 @@ interface Props {
 const MovieScroll = ({header,movies, onClick, postion, className}: Props, ) => {
   
   return (
-    <div className="container">
+    <div className="moviescroll-bg">
       <h3 className="Header">{header}</h3>
       <div className={`Movielist ${postion === "Vertical" ? 'Movielist--vertical' : ''} ${className || ''}`}>
         {movies.map((movie: Movie) => (
