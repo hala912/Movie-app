@@ -25,11 +25,11 @@ const Home = () => {
   if (!TopMovie) return <div>Loading...</div>;
 
   return (
-  <>
+  <div>
     <HeroBanner movie={TopMovie} />
     <MovieScroll header={"Top Rated"} movies={Topratedmovies} onClick={(movie) => navigate(`/movie/${movie.id}`)} />
-    <MovieScroll header="Trending" movies={trendingmovies} onClick={(movie) => navigate(`/movie/${movie.id}`)} />
-  </>
+    <MovieScroll header={"Trending"} movies={trendingmovies} onClick={(movie) => navigate(`/movie/${movie.id}`)} />
+  </div>
   );
 };
 

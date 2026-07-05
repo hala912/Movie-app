@@ -10,6 +10,6 @@
 body {
   background-color: #121212; /* Match your app background */
   }
-.app-layout { display: flex; flex-direction: column; height: 100vh; }
+.app-layout { display: flex; flex-direction: column; }
 .body-layout { display: flex; flex: 1; overflow: hidden; }
 .content { flex: 1; overflow-y: auto; }
