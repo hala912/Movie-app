@@ -1,5 +1,6 @@
-interface User {
-username: string;
+export interface User {
+  fullname : string;
+  username: string;
   password: string;
 
 }
@@ -11,7 +12,7 @@ export const getUser= ():User[]=>{
 export const addUser = (user:User):void => {
   const users = getUser();
   users.push(user);
-  localStorage.setItem("Users",JSON.stringify(users));
+  localStorage.setItem("users",JSON.stringify(users));
 }
 
 

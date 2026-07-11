@@ -12,7 +12,7 @@ const LoginPage = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();  
 
   const randomMovie = useAppSelector((state) => state.movies.trendingMovies);
 
