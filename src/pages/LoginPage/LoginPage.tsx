@@ -2,6 +2,8 @@ import { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchTrendingWeek from "../../store/movieslice/actions/getTrendingthisweek";
 import { useNavigate } from "react-router";
+  import { getMyList } from "../../utils/mylistStorage";
+import { setMyList } from "../../store/mylistslice/mylistslice"
 import { login } from "../../store/authslice/authslice";
 import { findUser } from "../../utils/authStorage";
 import "./LoginPage.css";
@@ -20,6 +22,8 @@ const LoginPage = () => {
     dispatch(fetchTrendingWeek());
   }, [dispatch]);
 
+
+
   const randomMovieId = useMemo(() => {
     return Math.floor(Math.random() * randomMovie.length);
   }, [randomMovie]);
@@ -33,12 +37,15 @@ const LoginPage = () => {
     const user = findUser(username, password);
   
     if (user) {
-      dispatch(login({ username: user.username }));
-      navigate("/");
-    } else {
+  console.log("logged in as:", user.username);
+  dispatch(login({ username: user.username }));
+  dispatch(setMyList(getMyList(user.username)));
+  navigate("/");
+} else {
       setError("Invalid username or password");
     }
   };
+
  
   return (
     <div className="container">

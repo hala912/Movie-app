@@ -2,12 +2,29 @@ import "./moviecard.css";
 import { useQuery } from "@tanstack/react-query";
 import { getMovieDetails } from "../../api/tmbd";
 import type { Movie, MovieDetails } from "../../types/movie";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { addToMyList } from "../../utils/mylistStorage";
+import { addMovieToList } from "../../store/mylistslice/mylistslice";
 
 interface MovieCardProps {
   movie: MovieDetails;
 }
 
 const MovieCard = ({ movie }: MovieCardProps) => {
+
+  const username = useAppSelector((state) => state.auth.username);
+const dispatch = useAppDispatch()
+
+
+
+const handleAddToList = () => {
+  console.log("username:", username); // is this even a real value?
+  if (!username) return;
+  console.log("adding movie:", movie.title);
+  addToMyList(username, movie);
+  dispatch(addMovieToList(movie));
+};
+
   return (
     <div className="card-bg">
       <div className="left-side">
@@ -42,7 +59,7 @@ const MovieCard = ({ movie }: MovieCardProps) => {
           <button className="btn-watch">
             <span>▶</span> Watch Now
           </button>
-          <button className="btn-list">
+          <button className="btn-list" onClick={handleAddToList}>
             <span>+</span> My List
           </button>
         </div>
