@@ -6,6 +6,7 @@ import SearchPage from "../pages/SearchPage/SearchPage";
 import LibararyPage from "../pages/LibararyPage/LibararyPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import SignupPage from "../pages/SignupPage/SignupPage";
+import MylistPage from "../pages/MylistPage/MylistPage";
 
 const AppRoutes = () => {
   return (
@@ -16,6 +17,7 @@ const AppRoutes = () => {
       <Route path="/Library" element={<LibararyPage />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage/>}/>
+      <Route path="/mylist" element={<MylistPage/>}/>
     </Routes>
   );
 };
