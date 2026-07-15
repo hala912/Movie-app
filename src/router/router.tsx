@@ -7,17 +7,24 @@ import LibararyPage from "../pages/LibararyPage/LibararyPage";
 import LoginPage from "../pages/LoginPage/LoginPage";
 import SignupPage from "../pages/SignupPage/SignupPage";
 import MylistPage from "../pages/MylistPage/MylistPage";
+import ProtectedRoute from "./protectedRoute";
 
 const AppRoutes = () => {
   return (
     <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/signup" element={<SignupPage/>}/>
+
+
+
       <Route path="/" element={<Home />} />
+
+      <Route element={<ProtectedRoute />}>
       <Route path="/movie/:id" element={<MovieDetailsPage />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/Library" element={<LibararyPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage/>}/>
       <Route path="/mylist" element={<MylistPage/>}/>
+      </Route>
     </Routes>
   );
 };

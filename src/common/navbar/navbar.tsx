@@ -1,8 +1,8 @@
-import { Search, Bell } from "lucide-react";
+import { Search, Bell, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./navbar.css";
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchSearchMovies from "../../store/movieslice/actions/searchformovie";
 import { emptySearchResults } from "../../store/movieslice/movieslice";
 
@@ -18,7 +18,7 @@ const navItems = [
 
 const Navbar = () => {
 
-
+const username = useAppSelector((state)=>state.auth.username)
 
 
   const [activeTab, setActiveTab] = useState("movies");
@@ -72,9 +72,14 @@ const Navbar = () => {
             value={searchquery}
             onChange={(e) => setsearchquery(e.target.value)}
           />
+
         </div>
         <Bell size={20} />
-        <img src="" alt="User" className="avatar" />
+        <div className="user-info">
+<User className="avatar" />
+        <span>{username}</span>
+        </div>
+        
       </div>
     </header>
   );

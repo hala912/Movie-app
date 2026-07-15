@@ -43,15 +43,26 @@
 
 
 .avatar {
-  width: 34px;
-  height: 34px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
-  border: 2px solid #e50914;
+  border: 1.5px solid #e50914;
   object-fit: cover;
   cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 8px;
 }
 
 .nav-links a.active { 
   color: #FFB4AA;
   border-bottom: 2px solid #FFB4AA; 
+}
+
+.user-info{
+
+  display: flex;
+  align-items: center;
+  
 }
