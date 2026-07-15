@@ -3,7 +3,7 @@ import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import type { Movie } from "../../types/movie";
 
 interface MyListState {
-  items: Movie[];
+  items: any[];
 }
 
 const initialState: MyListState = {
@@ -17,7 +17,7 @@ const mylistSlice = createSlice({
     setMyList: (state, action: PayloadAction<Movie[]>) => {
       state.items = action.payload;
     },
-    addMovieToList: (state, action: PayloadAction<Movie>) => {
+    addMovieToList: (state, action: PayloadAction<any>) => {
       const exists = state.items.some((m) => m.id === action.payload.id);
       if (!exists) state.items.push(action.payload);
     },
