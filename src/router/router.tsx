@@ -8,15 +8,18 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import SignupPage from "../pages/SignupPage/SignupPage";
 import MylistPage from "../pages/MylistPage/MylistPage";
 import ProtectedRoute from "./protectedRoute";
+import SeriesListPage from "../pages/DramaPage/DramaPage";
 
 const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage/>}/>
+      <Route path="/drama" element={<SeriesListPage/>}/>
 
 
 
+      
       <Route path="/" element={<Home />} />
 
       <Route element={<ProtectedRoute />}>
@@ -24,6 +27,7 @@ const AppRoutes = () => {
       <Route path="/search" element={<SearchPage />} />
       <Route path="/Library" element={<LibararyPage />} />
       <Route path="/mylist" element={<MylistPage/>}/>
+      
       </Route>
     </Routes>
   );
