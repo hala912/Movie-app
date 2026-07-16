@@ -4,8 +4,9 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchPopularSeries } from "../../store/seriesslice/actions/getpopularseries";
 import type { Series } from "../../types/series";
 import SeriesScroll from "./SeriesScroll/SeriesScroll";
+import CategoryOption from "../../componants/categoryoption/categoryoption";
 
-const SeriesListPage = () => {
+const DramaPage = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const series = useAppSelector((state) => state.series.series);
@@ -22,14 +23,16 @@ const SeriesListPage = () => {
 
   return (
     <div>
+
       <SeriesScroll
         header="Popular Series"
         series={series}
         onClick={handleSeriesClick}
         postion="Vertical"
+        className="library-override"
       />
     </div>
   );
 };
 
-export default SeriesListPage;
+export default DramaPage;

@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchTrendingWeek from "../../store/movieslice/actions/getTrendingthisweek";
-import './SignupPage.css'
+import "./SignupPage.css";
 import { addUser } from "../../utils/authStorage";
 import type { User } from "../../utils/authStorage";
+import { useNavigate } from "react-router-dom";
+import LoginPage from "../LoginPage/LoginPage";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");
@@ -11,7 +13,7 @@ const SignupPage = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [error, setError] = useState("");
-
+  const navigate = useNavigate();
   const randomMovie = useAppSelector((state) => state.movies.trendingMovies);
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -41,10 +43,16 @@ const SignupPage = () => {
     }
 
     const newUser: User = { username, fullname, password };
-    
-    addUser(newUser);
-  };
 
+    const success = addUser(newUser);
+
+    if (!success) {
+      setError("Username already exists. Please choose another.");
+      return;
+    }
+
+    navigate("/login");
+  };
 
   return (
     <div className="signup-container">
@@ -66,9 +74,7 @@ const SignupPage = () => {
 
       <div className="signup-right-side">
         <span className="signuppage-header">CINEPLEX</span>
-        <span className="signup-page-sub-header">
-          Create your account
-        </span>
+        <span className="signup-page-sub-header">Create your account</span>
 
         <form className="signup-form" onSubmit={handleSignup}>
           <div className="signup-form-group">
@@ -142,7 +148,6 @@ const SignupPage = () => {
   );
 };
 
+console.log(JSON.parse(localStorage.getItem("users") || "[]"));
 
-  console.log(JSON.parse(localStorage.getItem("users") || "[]"));
-  
 export default SignupPage;
