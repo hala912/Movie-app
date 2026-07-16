@@ -13,11 +13,11 @@
   display: flex;
   gap: 16px;
   overflow-x: auto;
-  scrollbar-width: none; /* hide scrollbar firefox */
+  scrollbar-width: none;
 }
 
 .series-list::-webkit-scrollbar {
-  display: none; /* hide scrollbar chrome */
+  display: none;
 }
 
 .series-mini {
@@ -27,14 +27,45 @@
   display: block;
 }
 
-.series-mini img {
+.series-poster-wrap {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.series-poster-wrap img {
   width: 100%;
+  display: block;
   border-radius: 8px;
   transition: transform 0.2s;
 }
 
-.series-mini img:hover {
+.series-mini:hover .series-poster-wrap img {
   transform: scale(1.05);
+}
+
+.series-play-btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #e63946;
+  color: #fff;
+  border: none;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0.95;
+  transition: transform 0.15s ease;
+}
+
+.series-mini:hover .series-play-btn {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .series-mini p {
@@ -64,7 +95,7 @@
     width: 200px;
 }
 
-.series-list.library-override .series-mini img {
+.series-list.library-override .series-poster-wrap img {
     border-radius: 12px;
 }
 

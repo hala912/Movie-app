@@ -14,20 +14,16 @@ const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/login" element={<LoginPage />} />
-      <Route path="/signup" element={<SignupPage/>}/>
-      <Route path="/drama" element={<SeriesListPage/>}/>
+      <Route path="/signup" element={<SignupPage />} />
 
-
-
-      
       <Route path="/" element={<Home />} />
 
       <Route element={<ProtectedRoute />}>
-      <Route path="/movie/:id" element={<MovieDetailsPage />} />
-      <Route path="/search" element={<SearchPage />} />
-      <Route path="/Library" element={<LibararyPage />} />
-      <Route path="/mylist" element={<MylistPage/>}/>
-      
+        <Route path="/movie/:id" element={<MovieDetailsPage />} />
+        <Route path="/search" element={<SearchPage />} />
+        <Route path="/Library" element={<LibararyPage />} />
+        <Route path="/mylist" element={<MylistPage />} />
+        <Route path="/drama" element={<SeriesListPage />} />
       </Route>
     </Routes>
   );
