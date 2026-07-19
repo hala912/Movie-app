@@ -1,57 +1,48 @@
-import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import fetchMovieDetails from "../../store/movieslice/actions/getmoviedetails";
-import type { Movie, MovieDetails } from "../../types/movie";
-import "./MylistPage.css"
+import "./MylistPage.css";
 import { useNavigate } from "react-router-dom";
-import { Link } from "lucide-react";
+import {
+  clearlist,
+  removeMovieFromList,
+} from "../../store/mylistslice/mylistslice";
+import { removeFromMyList, type MyListItem } from "../../utils/mylistStorage";
 
 const MylistPage = () => {
-  const movieslist = useAppSelector((state) => state.mylist.items);
-  const loged = useAppSelector((state)=>state.auth.isAuthenticated)
+  const list = useAppSelector((state) => state.mylist.items);
+  const username = useAppSelector((state) => state.auth.username);
   const dispatch = useAppDispatch();
-const navigate = useNavigate()
-  useEffect(() => {
-    dispatch(fetchMovieDetails(550));
-  }, [dispatch]);
+  const navigate = useNavigate();
 
-
-if (!loged) return (
-  <div className="unauth-message">
-    <div className="unauth-icon">🔒</div>
-    <h2>You need to log in first</h2>
-    <p>This page is only available to signed-in users.</p>
-  </div>
-);
   return (
     <div className="Mylist-container">
       <div className="mylist-header">
         <div>
-        
           <h1 className="mylist-title">Saved Treasures</h1>
         </div>
         <div className="header-actions">
           <button className="btn-edit">Edit</button>
-          <button className="btn-clear" >
+          <button className="btn-clear" onClick={() => dispatch(clearlist())}>
             Clear All
           </button>
         </div>
       </div>
 
-      {/* Continue Watching: separate feature, not yet built (needs progress-tracking data) */}
-
       <div className="saved-section">
         <h2 className="section-title">Saved for Later</h2>
         <div className="saved-grid">
-          {movieslist.map((movie: Movie) => (
-            <div key={movie.id} className="saved-poster">
+          {list.map((item: MyListItem) => (
+            <div key={`${item.id}-${item.media_type}`} className="saved-poster">
               <img
-                src={`https://image.tmdb.org/t/p/w342${movie.poster_path}`}
-                alt={movie.title}
+                src={`https://image.tmdb.org/t/p/w342${item.poster_path}`}
+                alt={item.media_type}
               />
               <button
                 className="remove-btn"
-                
+                onClick={() => {
+                  if (!username) return;
+                  removeFromMyList(username, item.id, item.media_type);
+                  dispatch(removeMovieFromList(item.id));
+                }}
               >
                 ✕
               </button>

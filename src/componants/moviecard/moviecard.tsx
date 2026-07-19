@@ -3,27 +3,27 @@ import { useQuery } from "@tanstack/react-query";
 import { getMovieDetails } from "../../api/tmbd";
 import type { Movie, MovieDetails } from "../../types/movie";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { addToMyList } from "../../utils/mylistStorage";
+import { addToMyList, removeFromMyList } from "../../utils/mylistStorage";
+import type { MyListItem } from "../../utils/mylistStorage";
 import { addMovieToList } from "../../store/mylistslice/mylistslice";
 
-interface MovieCardProps {
-  movie: MovieDetails;
+interface MovieCardProp{
+  movie:MovieDetails
 }
 
-const MovieCard = ({ movie }: MovieCardProps) => {
 
+const MovieCard = ({movie}: MovieCardProp) => {
   const username = useAppSelector((state) => state.auth.username);
-const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch();
 
+  const handleAddToList = () => {
+    if (!username) return;
 
+    const listItem: MyListItem = { ...movie, media_type: "movie" };
 
-const handleAddToList = () => {
-  console.log("username:", username); // is this even a real value?
-  if (!username) return;
-  console.log("adding movie:", movie.title);
-  addToMyList(username, movie);
-  dispatch(addMovieToList(movie));
-};
+    addToMyList(username, listItem);
+    dispatch(addMovieToList(listItem));
+  };
 
   return (
     <div className="card-bg">
@@ -64,7 +64,6 @@ const handleAddToList = () => {
           </button>
         </div>
 
-        {/* New sections matching the image layout */}
         <div className="info-grid">
           <div className="info-box">
             <span className="info-label">DIRECTOR</span>
