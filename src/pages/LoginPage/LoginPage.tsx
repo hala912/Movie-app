@@ -99,16 +99,16 @@ const LoginPage = () => {
               type="submit"
               className="btn-signup"
               onClick={() => {
-                navigate("/signup");
+                navigate("/home");
               }}
             >
-              Sign In
+              Login
             </button>
           </div>
         </form>
 
         <p className="join-text">
-          Don't have an account? <a href="#">Join Cineplex Plus</a>
+          Don't have an account? <a href="#" onClick={()=>navigate("/signup")}>Join Cineplex Plus</a>
         </p>
       </div>
     </div>

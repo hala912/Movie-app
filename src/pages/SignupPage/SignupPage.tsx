@@ -130,10 +130,9 @@ const SignupPage = () => {
           </div>
         </form>
 
-      
 
         <p className="signup-join-text">
-          Don't have an account? <a href="#">Join Cineplex Plus</a>
+          Already have account ? <a href="#" onClick={()=>{navigate("/login")}}>Login</a>
         </p>
       </div>
     </div>
