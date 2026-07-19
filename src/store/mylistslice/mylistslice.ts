@@ -1,6 +1,5 @@
 // store/mylistSlice.ts
-import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import type { Movie } from "../../types/movie";
+import { createSlice} from "@reduxjs/toolkit";
 
 interface MyListState {
   items: any[];
@@ -14,18 +13,21 @@ const mylistSlice = createSlice({
   name: "mylist",
   initialState,
   reducers: {
-    setMyList: (state, action: PayloadAction<Movie[]>) => {
+    setMyList: (state, action) => {
       state.items = action.payload;
     },
-    addMovieToList: (state, action: PayloadAction<any>) => {
+    addMovieToList: (state, action) => {
       const exists = state.items.some((m) => m.id === action.payload.id);
       if (!exists) state.items.push(action.payload);
     },
-    removeMovieFromList: (state, action: PayloadAction<number>) => {
+    removeMovieFromList: (state, action) => {
       state.items = state.items.filter((m) => m.id !== action.payload);
     },
+    clearlist:(state)=>{
+      state.items = []
+    }
   },
 });
 
-export const { setMyList, addMovieToList, removeMovieFromList } = mylistSlice.actions;
+export const { setMyList, addMovieToList, removeMovieFromList,clearlist } = mylistSlice.actions;
 export default mylistSlice.reducer;

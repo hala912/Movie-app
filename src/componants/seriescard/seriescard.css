@@ -1,0 +1,230 @@
+.series-card-bg {
+  position: relative;
+  display: flex;
+  background: radial-gradient(circle at 90% 20%, rgba(120, 60, 200, 0.35), transparent 40%),
+              #0a0a0c;
+  margin: 0 auto;
+  overflow: visible;
+  width: 100%;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  padding: 40px;
+}
+
+.series-left-side {
+  width: 380px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.series-left-side img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.series-right-side {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+  z-index: 1;
+}
+
+/* Header & Meta */
+.series-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #a0a0a0;
+}
+
+.series-stars {
+  color: #ffffff;
+  letter-spacing: 2px;
+}
+
+.series-rating {
+  color: #ffffff;
+}
+
+.series-dot {
+  color: #444;
+}
+
+/* Category Tags */
+.series-categories {
+  display: flex;
+  gap: 10px;
+}
+
+.series-category-tag {
+  background-color: transparent;
+  border: 1px solid #333;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  color: #a0a0a0;
+}
+
+/* Text */
+.series-overview {
+  font-size: 14px;
+  color: #a0a0a0;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Buttons */
+.series-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.series-btn-watch, .series-btn-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 14px;
+  flex: 1;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.series-btn-watch {
+  background-color: #f10b24;
+  color: white;
+}
+
+.series-btn-watch:hover {
+  background-color: #d1091f;
+}
+
+.series-btn-list {
+  background-color: #1c1c21;
+  color: white;
+}
+
+.series-btn-list:hover {
+  background-color: #27272d;
+}
+
+/* Info Grid (Creator & Network) */
+.series-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.series-info-box {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.series-info-label {
+  font-size: 14px;
+  color: #E9BCB6;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.series-info-value {
+  font-size: 14px;
+  color: #f0f0f0;
+  font-weight: 500;
+}
+
+/* Trailer Preview Section */
+.series-trailer-preview {
+  display: flex;
+  align-items: center;
+  background-color: #0c0c0e;
+  border-radius: 8px;
+  padding: 12px;
+  gap: 16px;
+  margin-top: 4px;
+}
+
+.series-trailer-thumb {
+  width: 50px;
+  height: 40px;
+  background-color: #2a2a2a;
+  border-radius: 4px;
+}
+
+.series-trailer-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.series-trailer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.series-trailer-title {
+  font-size: 13px;
+  color: #e0e0e0;
+}
+
+.series-trailer-time {
+  font-size: 12px;
+  color: #777;
+}
+
+.series-progress-container {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+  position: relative;
+}
+
+.series-progress-bar {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 30%;
+  background-color: #f39c12;
+  border-radius: 2px;
+}
+
+.series-btn-play-circle {
+  background-color: white;
+  color: black;
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 12px;
+  padding-left: 4px;
+}

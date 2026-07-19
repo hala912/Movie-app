@@ -2,9 +2,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { fetchPopularSeries } from "../../store/seriesslice/actions/getpopularseries";
-import type { Series } from "../../types/series";
 import SeriesScroll from "./SeriesScroll/SeriesScroll";
-import CategoryOption from "../../componants/categoryoption/categoryoption";
 
 const DramaPage = () => {
   const dispatch = useAppDispatch();
@@ -17,17 +15,13 @@ const DramaPage = () => {
 
   if (!series) return <div>Loading...</div>;
 
-  const handleSeriesClick = (item: Series) => {
-    navigate(`/series/${item.id}`);
-  };
 
   return (
     <div>
-
       <SeriesScroll
         header="Popular Series"
         series={series}
-        onClick={handleSeriesClick}
+        onClick={(series)=>{ navigate(`/series/${series.id}`);}}
         postion="Vertical"
         className="library-override"
       />

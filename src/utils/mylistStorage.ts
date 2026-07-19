@@ -1,5 +1,5 @@
 // src/utils/mylistStorage.ts
-import type { Movie, MovieDetails } from "../types/movie";
+import type { MovieDetails } from "../types/movie";
 import type { SeriesDetails } from "../types/series";
 
 export type MyListItem =

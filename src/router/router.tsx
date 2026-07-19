@@ -8,7 +8,8 @@ import LoginPage from "../pages/LoginPage/LoginPage";
 import SignupPage from "../pages/SignupPage/SignupPage";
 import MylistPage from "../pages/MylistPage/MylistPage";
 import ProtectedRoute from "./protectedRoute";
-import SeriesListPage from "../pages/DramaPage/DramaPage";
+import DramaPage from "../pages/DramaPage/DramaPage";
+import SeriesDetailsPage from "../pages/SeriesDetailsPage/SeriesDetailsPage";
 
 const AppRoutes = () => {
   return (
@@ -20,10 +21,11 @@ const AppRoutes = () => {
 
       <Route element={<ProtectedRoute />}>
         <Route path="/movie/:id" element={<MovieDetailsPage />} />
+        <Route path="/series/:id" element={<SeriesDetailsPage />} />
         <Route path="/search" element={<SearchPage />} />
         <Route path="/Library" element={<LibararyPage />} />
         <Route path="/mylist" element={<MylistPage />} />
-        <Route path="/drama" element={<SeriesListPage />} />
+        <Route path="/drama" element={<DramaPage />} />
       </Route>
     </Routes>
   );
