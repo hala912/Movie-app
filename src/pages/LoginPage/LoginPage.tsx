@@ -2,11 +2,12 @@ import { useEffect, useMemo, useState } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchTrendingWeek from "../../store/movieslice/actions/getTrendingthisweek";
 import { useNavigate } from "react-router";
-  import { getMyList } from "../../utils/mylistStorage";
-import { setMyList } from "../../store/mylistslice/mylistslice"
+import { getMyList } from "../../utils/mylistStorage";
+import { setMyList } from "../../store/mylistslice/mylistslice";
 import { login } from "../../store/authslice/authslice";
 import { findUser } from "../../utils/authStorage";
 import "./LoginPage.css";
+import SignupPage from "../SignupPage/SignupPage";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
@@ -14,15 +15,13 @@ const LoginPage = () => {
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
-  const dispatch = useAppDispatch();  
+  const dispatch = useAppDispatch();
 
   const randomMovie = useAppSelector((state) => state.movies.trendingMovies);
 
   useEffect(() => {
     dispatch(fetchTrendingWeek());
   }, [dispatch]);
-
-
 
   const randomMovieId = useMemo(() => {
     return Math.floor(Math.random() * randomMovie.length);
@@ -35,18 +34,17 @@ const LoginPage = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     const user = findUser(username, password);
-  
+
     if (user) {
-  console.log("logged in as:", user.username);
-  dispatch(login({ username: user.username }));
-  dispatch(setMyList(getMyList(user.username)));
-  navigate("/");
-} else {
+      console.log("logged in as:", user.username);
+      dispatch(login({ username: user.username }));
+      dispatch(setMyList(getMyList(user.username)));
+      navigate("/");
+    } else {
       setError("Invalid username or password");
     }
   };
 
- 
   return (
     <div className="container">
       <div className="left-side">
@@ -98,20 +96,17 @@ const LoginPage = () => {
           {error && <p className="error-text">{error}</p>}
 
           <div className="buttons">
-            <button type="submit" className="btn-signup">
+            <button
+              type="submit"
+              className="btn-signup"
+              onClick={() => {
+                navigate("/signup");
+              }}
+            >
               Sign In
             </button>
           </div>
         </form>
-
-        <hr className="divider" />
-        <div className="social-login">
-          <span>Or sign in with</span>
-        </div>
-        <div className="social-buttons">
-          <button className="btn btn-google">Google</button>
-          <button className="btn btn-facebook">Facebook</button>
-        </div>
 
         <p className="join-text">
           Don't have an account? <a href="#">Join Cineplex Plus</a>

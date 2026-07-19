@@ -130,14 +130,7 @@ const SignupPage = () => {
           </div>
         </form>
 
-        <hr className="signup-divider" />
-        <div className="signup-social-login">
-          <span>Or sign in with</span>
-        </div>
-        <div className="signup-social-buttons">
-          <button className="signup-btn-google">Google</button>
-          <button className="signup-btn-facebook">Facebook</button>
-        </div>
+      
 
         <p className="signup-join-text">
           Don't have an account? <a href="#">Join Cineplex Plus</a>
