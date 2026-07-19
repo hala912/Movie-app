@@ -7,7 +7,6 @@ import { setMyList } from "../../store/mylistslice/mylistslice";
 import { login } from "../../store/authslice/authslice";
 import { findUser } from "../../utils/authStorage";
 import "./LoginPage.css";
-import SignupPage from "../SignupPage/SignupPage";
 
 const LoginPage = () => {
   const [username, setUsername] = useState("");
