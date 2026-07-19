@@ -1,5 +1,5 @@
 import "./seriescard.css";
-import type { Series, SeriesDetails } from "../../types/series";
+import type { SeriesDetails } from "../../types/series";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { addToMyList } from "../../utils/mylistStorage";
 import type { MyListItem } from "../../utils/mylistStorage";

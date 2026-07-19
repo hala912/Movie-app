@@ -1,4 +1,3 @@
-import { getTrendingMovies } from "./../../api/tmbd";
 import { createSlice } from "@reduxjs/toolkit";
 import fetchSearchMovies from "./actions/searchformovie";
 import { createAsyncThunk } from "@reduxjs/toolkit";
