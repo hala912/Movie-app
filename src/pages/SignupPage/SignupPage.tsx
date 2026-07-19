@@ -5,7 +5,6 @@ import "./SignupPage.css";
 import { addUser } from "../../utils/authStorage";
 import type { User } from "../../utils/authStorage";
 import { useNavigate } from "react-router-dom";
-import LoginPage from "../LoginPage/LoginPage";
 
 const SignupPage = () => {
   const [username, setUsername] = useState("");

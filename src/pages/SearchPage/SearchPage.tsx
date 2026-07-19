@@ -1,6 +1,4 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { fetchPopularMovies } from "../../store/movieslice/movieslice";
+import { useAppSelector } from "../../store/hooks";
 import MovieScroll from "../Home/MovieScroll/MovieScroll";
 import { useNavigate } from "react-router-dom";
 

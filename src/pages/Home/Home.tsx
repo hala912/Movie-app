@@ -5,7 +5,6 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import fetchTrendingWeek from "../../store/movieslice/actions/getTrendingthisweek";
 import fetchTopRatedmovies from "../../store/movieslice/actions/getTopRatedmovies";
 import { useNavigate } from "react-router-dom";
-import MovieDetailsPage from "../MovieDetailsPage/MovieDetailsPage";
 
 const Home = () => {
  

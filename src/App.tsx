@@ -1,7 +1,3 @@
-import { useEffect, useState } from "react";
-import { getPopularMovies } from "./api/tmbd";
-import MovieCard from "./componants/moviecard/moviecard";
-import Sidebar from "./common/sidebar/sidebar";
 import "./App.css";
 import Navbar from "./common/navbar/navbar";
 import AppRoutes from "./router/router";

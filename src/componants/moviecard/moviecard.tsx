@@ -1,9 +1,7 @@
 import "./moviecard.css";
-import { useQuery } from "@tanstack/react-query";
-import { getMovieDetails } from "../../api/tmbd";
-import type { Movie, MovieDetails } from "../../types/movie";
+import type { MovieDetails } from "../../types/movie";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import { addToMyList, removeFromMyList } from "../../utils/mylistStorage";
+import { addToMyList } from "../../utils/mylistStorage";
 import type { MyListItem } from "../../utils/mylistStorage";
 import { addMovieToList } from "../../store/mylistslice/mylistslice";
 

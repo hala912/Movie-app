@@ -20,7 +20,7 @@ const MylistPage = () => {
           <h1 className="mylist-title">Saved Treasures</h1>
         </div>
         <div className="header-actions">
-          <button className="btn-edit">Edit</button>
+          
           <button className="btn-clear" onClick={() => dispatch(clearlist())}>
             Clear All
           </button>

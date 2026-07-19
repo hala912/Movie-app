@@ -1,4 +1,4 @@
-import type { Movie, MovieDetails } from "../../types/movie";
+import type { Movie } from "../../types/movie";
 import "./continuewatchingCard.css"
 
 interface CardProps {

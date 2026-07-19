@@ -1,10 +1,5 @@
-import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import { fetchPopularMovies } from "../../../store/movieslice/movieslice";
 import type { Movie } from "../../../types/movie";
 import './MovieScroll.css'
-import fetchTopRatedmovies from "../../../store/movieslice/actions/getTopRatedmovies";
-
 interface Props {
   header: string;
   movies :Movie[];
