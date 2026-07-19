@@ -3,7 +3,8 @@
 A responsive movie discovery app built with React, TypeScript, and the TMDB API. Browse popular movies, search by title, and save your favorites.
 
 ## 🚀 Live Demo
-[Coming soon]
+https://movie-app-xi-lake-42.vercel.app/
+
 
 ## ✨ Features
 - Browse popular movies
