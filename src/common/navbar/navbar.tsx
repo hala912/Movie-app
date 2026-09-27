@@ -7,7 +7,7 @@ import fetchSearchMovies from "../../store/movieslice/actions/searchformovie";
 import { emptySearchResults } from "../../store/movieslice/movieslice";
 
 const navItems = [
-  { id: "movies", label: "Movies", path: "/" },
+  { id: "movies", label: "Movies", path: "/home" },
   { id: "Library", label: "Library", path: "/Library" },
   { id: "drama", label: "Drama", path: "/drama" },
   { id: "mylist", label: "My List", path: "/mylist" },
