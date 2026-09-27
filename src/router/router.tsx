@@ -17,11 +17,13 @@ const AppRoutes = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/signup" element={<SignupPage />} />
 
-      <Route path="/home" element={<Home />} />
 
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/movie/:id" element={<MovieDetailsPage />} />
+      <Route path="/series/:id" element={<SeriesDetailsPage />} />
       <Route element={<ProtectedRoute />}>
-        <Route path="/movie/:id" element={<MovieDetailsPage />} />
-        <Route path="/series/:id" element={<SeriesDetailsPage />} />
+       
         <Route path="/search" element={<SearchPage />} />
         <Route path="/Library" element={<LibararyPage />} />
         <Route path="/mylist" element={<MylistPage />} />
