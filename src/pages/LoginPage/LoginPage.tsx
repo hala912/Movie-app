@@ -38,7 +38,7 @@ const LoginPage = () => {
       console.log("logged in as:", user.username);
       dispatch(login({ username: user.username }));
       dispatch(setMyList(getMyList(user.username)));
-      navigate("/");
+      navigate("/home");
     } else {
       setError("Invalid username or password");
     }
